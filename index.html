@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Classic Tunes</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&family=Tillana:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- <link rel="stylesheet" href="style.css">
+<script src="script.js"></script> -->
+<style>
+    body {
+       font-family: "Tillana", system-ui;
+       text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+   }
+   
+.text-texture{
+       background-image:   url('https://wallpaperaccess.com/full/303549.jpg');
+       background-clip: text;
+      -webkit-background-clip: text; 
+       color: transparent;
+  }
+  
+ .background-image{
+          background-image:         url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fjooinn.com%2Fimages%2Fwood-background-55.jpg&f=1&nofb=1&ipt=79a42b85afed7370cc3451a670d5cc4ba04cd4a719fb65f2752dc0cf34d6f521&ipo=images");
+          background-size: contain;
+          background-repeat: repeat; 
+          }
+
+header {
+            text-align: center;
+            border: solid transparent;
+            font-size: 34px;
+            font-family: 'Rubik Doodle Shadow', system-ui;
+            font-weight: bold;
+            border: 8px ridge #4d3919;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+        }
+        
+.mobile-toolbar{
+            list-style-type: none;
+            display: flex;
+            justify-content: space-between;
+            padding-top: 6px;
+            padding-bottom: 2px;
+            border: 5px ridge #4d3919;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+        }
+        
+.tools {
+            margin-right: 6%;
+            color: #4d3319;
+            cursor: pointer;
+        }
+        
+#searchInput {
+            width: 80%;
+            font-size: 12px;  
+            cursor: pointer; 
+        }
+        
+#menu-slide {
+                width: 140px;
+                height: 247px;
+                background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fjooinn.com%2Fimages%2Fwood-background-55.jpg&f=1&nofb=1&ipt=79a42b85afed7370cc3451a670d5cc4ba04cd4a719fb65f2752dc0cf34d6f521&ipo=images');
+               background-size: contain;
+               position: absolute;
+               border: 6px ridge #4d3919;
+               z-index: 999;
+               top: -254px;
+               left: 12px;
+            }
+            
+            @keyframes down{
+               0% {
+                 top: -284px;
+               }
+               100% {
+                 top: 200px;
+               }
+             }
+             
+            @keyframes up{
+                0% {
+                    top:200px;
+                }
+                100% {
+                    top: -284px;
+                }
+            }
+           
+            .menu-border-line {
+                border-bottom: 6px ridge #4d3919;
+                text-align: center;
+                padding-bottom: 20px;
+            }  
+            
+            h3 {
+                text-align: center;
+                cursor: pointer;
+            }       
+               
+           h3:active{
+                background: url("https://www.onlygfx.com/wp-content/uploads/2018/02/crack-20-1024x404.png");
+                background-size: cover;
+                background-position: center;
+                opacity: 0.8;   
+            } 
+            
+.element {
+                display: none;
+            }
+            
+ #gallery {
+            display: block;
+        }
+
+        #gallery-no-match {
+            display: none;
+            color: ; #996600;
+        }
+        
+.page {
+            display: none;
+            }
+                          
+figure {    cursor: pointer;
+            text-align: center;
+            font-weight: bold;
+            margin: 10px 0px;
+            padding: 0;
+        }
+        
+img {
+            width: 100px;
+            height: 100px;   
+            filter: sepia(60%) brightness(80%) contrast(120%);
+            border: 8px ridge #4d3919;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+        }
+        
+figcaption {
+            margin-top: 5px;  background-image:url('https://wallpaperaccess.com/full/303549.jpg');
+            background-clip: text;
+            -webkit-background-clip: text; 
+            color: transparent;
+          }
+          
+button {    cursor: pointer;
+            border: 3px ridge #4d3919;
+            background-color: transparent;
+            font-size: 12px;
+            color: #4d3919;
+            box-shadow: 0px 4px 6px rgba(0,0,0,0.5);
+        }
+
+        button:active {
+            background: url("https://www.onlygfx.com/wp-content/uploads/2018/02/crack-10-1024x641.png");
+                background-size: cover;
+                background-position: center;
+                opacity: 0.8;
+        }
+        
+/*download button hide*/ 
+       .toggle-block {
+            display: none;
+            margin-top: 10px;
+        }
+          
+@media only screen and (max-width: 600px) {
+   
+     .flexible {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+         }
+  }
+
+@media only screen and (min-width: 601px) {
+        
+    .flexible {
+       display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); 
+    }
+  }   
+  
+hr {
+    height:2px;
+    color:#4d3300;
+    background-color:#4d3919;
+    border-width:0;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+    }      
+    
+</style>
+</head>
+
+
+<body class="background-image">
+    <header>       
+      <p class="text-texture">Classic Tunes</p>      
+     </header>
+     
+     <ul class="mobile-toolbar" >
+    <li class="tools">
+            <svg id="menu-button" onclick="menuDown()" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/> </svg>      
+     </li>
+     <li class="tools">
+             <input id="searchInput" style="background-color: transparent;border: 3px ridge #4d3919;"type="text"  oninput="searchCaptions()" placeholder="search files">
+             <label style="color: #4d3919;"for="searchInput"> 
+            <svg  xmlns="http://www.w3.org/2000/svg" width="20" height="13" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"> <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/> 
+            </svg>
+              </label>       
+     </li>         
+</ul>
+
+<div id="menu-slide" onclick="menuUp()">
+          <h2 class="menu-border-line">Menu</h2>
+          <h3 onclick="show('element1')">Home</h3>
+          <h3 onclick="show('element2')">About</h3>
+          <h3 onclick="show('element3')">Contact</h3>
+       </div>
+       
+    <div id="element1" class="element" style="display: block;"><!-- home -->
+<div id="gallery" class="flexible">
+<div id="page1" class="page"   style="display: block;">
+    <div class="flexible shuffle-container">
+    <figure class="shuffle">
+        <div onclick="toggleBlock('toggleBlock1')">
+            <figure>
+                <img  src="https://a10.gaanacdn.com/gn_img/albums/R7vKXr6Wmr/vKX66pOzWm/size_l.webp" alt="album cover">
+                <figcaption>JD the Alcoholic</figcaption>
+            </figure>
+        </div>
+        <div id="toggleBlock1" class="toggle-block">
+            <a href="https://docs.google.com/uc?export=download&id=1p10cASQUIDZz9iup6aft9KJkhY71tLMo">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                </svg>
+            </button>
+            </a>
+        </div>
+    </figure>
+   
+    <figure class="shuffle">
+        <div onclick="toggleBlock('toggleBlock2')">
+            <figure>
+                <img  src="https://static.qobuz.com/images/covers/6b/u8/qhyotpxoyu86b_600.jpg" alt="album cover">
+                <figcaption>Sound of Salaar</figcaption>
+            </figure>
+        </div>
+        <div id="toggleBlock2" class="toggle-block">
+                  <a href="https://docs.google.com/uc?export=download&id=1p10cASQUIDZz9iup6aft9KJkhY71tLMo">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                </svg>
+            </button>
+            </a>
+        </div>
+    </figure>
+
+    <figure class="shuffle">
+        <div onclick="toggleBlock('toggleBlock3')">
+            <figure>
+                <img  src="https://upload.wikimedia.org/wikipedia/en/1/10/Jagame_Thandhiram_soundtrack.jpg" alt="album cover">
+                <figcaption>Neetho</figcaption>
+            </figure>
+        </div>
+        <div id="toggleBlock3" class="toggle-block">
+            <a href="       https://docs.google.com/uc?export=download&id=1p10cASQUIDZz9iup6aft9KJkhY71tLMo">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                </svg>
+            </button>
+            </a>
+         </div> 
+     </figure> 
+     
+     <figure class="shuffle">
+        <div onclick="toggleBlock('toggleBlock4')">
+            <figure>
+                <img  src="https://m.media-amazon.com/images/I/51VTww4s4cL._UX420_FMwebp_QL85_.jpg" alt="album cover">
+                <figcaption>He's a Pirate</figcaption>
+            </figure>
+        </div>
+        <div id="toggleBlock4" class="toggle-block">
+                  <a href="https://docs.google.com/uc?export=download&id=1p10cASQUIDZz9iup6aft9KJkhY71tLMo">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                </svg>
+            </button>
+            </a>
+         </div> 
+     </figure>  
+     
+     <figure class="shuffle">
+        <div onclick="toggleBlock('toggleBlock5')">
+            <figure>
+                <img  src="https://a10.gaanacdn.com/gn_img/albums/z8k3yd1Krx/k3yN5j7JWr/size_l.jpg" alt="album cover">
+            <figcaption>Pyaar Lona Pagal</figcaption>   
+            </figure>
+        </div>
+        <div id="toggleBlock5" class="toggle-block">
+                  <a href="https://docs.google.com/uc?export=download&id=1p10cASQUIDZz9iup6aft9KJkhY71tLMo">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                </svg>
+            </button>
+            </a>
+         </div> 
+     </figure>
+     
+     <figure class="shuffle">
+        <div onclick="toggleBlock('toggleBlock6')">
+            <figure>
+                <img  src="https://a10.gaanacdn.com/gn_img/albums/MmqK5EKwRO/qK5ZXQME3w/size_l.jpg" alt="album cover">
+                <figcaption>Mawaa Enthaina</figcaption>
+            </figure>
+        </div>
+        <div id="toggleBlock6" class="toggle-block">
+                  <a href="https://docs.google.com/uc?export=download&id=1p10cASQUIDZz9iup6aft9KJkhY71tLMo">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                </svg>
+            </button>
+            </a>
+         </div> 
+     </figure>
+     
+     <figure class="shuffle">
+        <div onclick="toggleBlock('toggleBlock7')">
+            <figure>
+                <img  src="https://a10.gaanacdn.com/gn_img/albums/oAJbDlbnL8/AJbD7okBWn/size_l.webp" alt="album cover">
+                <figcaption>Idhedho Bagundhe</figcaption>
+            </figure>
+        </div>
+        <div id="toggleBlock7" class="toggle-block">
+                  <a href="https://docs.google.com/uc?export=download&id=1p10cASQUIDZz9iup6aft9KJkhY71tLMo">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                </svg>
+            </button>
+            </a>
+         </div> 
+     </figure>
+     
+     <figure class="shuffle">
+        <div onclick="toggleBlock('toggleBlock8')">
+            <figure>
+                <img  src="https://a10.gaanacdn.com/gn_img/albums/R7vKX66Wmr/vKX6d5wPWm/size_l.jpg" alt="album cover">
+                <figcaption>Kannulatho</figcaption>
+            </figure>
+        </div>
+        <div id="toggleBlock8" class="toggle-block">
+                  <a href="https://docs.google.com/uc?export=download&id=1p10cASQUIDZz9iup6aft9KJkhY71tLMo">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                </svg>
+            </button>
+            </a>
+         </div> 
+     </figure>
+     
+     <figure class="shuffle">
+        <div onclick="toggleBlock('toggleBlock9')">
+            <figure>
+                <img  src="https://a10.gaanacdn.com/gn_img/albums/YoEWlwa3zX/oEWl4N0gWz/size_l.webp" alt="album cover">
+                <figcaption>Jaago</figcaption>
+            </figure>
+        </div>
+        <div id="toggleBlock9" class="toggle-block">
+                  <a href="https://docs.google.com/uc?export=download&id=1p10cASQUIDZz9iup6aft9KJkhY71tLMo">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                </svg>
+            </button>
+            </a>
+         </div> 
+     </figure>
+     
+      <figure class="shuffle">
+        <div onclick="toggleBlock('toggleBlock10')">
+            <figure>
+                <img  src="https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/4a/1f/ad/4a1fad83-d6ec-cc9d-ac0a-6fcce88a09ac/8903431974624_cover.jpg/592x592bb.webp" alt="album cover">
+                <figcaption>Abrar's Entry Jamal Kudu</figcaption>
+            </figure>
+        </div>
+        <div id="toggleBlock10" class="toggle-block">
+                  <a href="https://docs.google.com/uc?export=download&id=1p10cASQUIDZz9iup6aft9KJkhY71tLMo">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                </svg>
+            </button>
+            </a>
+         </div> 
+     </figure>
+     </div><!-- /flex -->
+     </div><!-- /page1 -->
+
+<div id="page2" class="page">
+    <div class="flexible shuffle-container">
+       <figure class="shuffle">
+        <div onclick="toggleBlock('toggleBlock11')">
+            <figure>
+                <img  src="https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/46/ce/4c/46ce4c81-59d8-eae6-18ac-c10746aed240/8901854097036.png/592x592bb.webp" alt="album cover">
+                <figcaption>Karikalan's Valour</figcaption>
+            </figure>
+        </div>
+        <div id="toggleBlock11" class="toggle-block">
+            <a href="https://docs.google.com/uc?export=download&id=1p10cASQUIDZz9iup6aft9KJkhY71tLMo">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                </svg>
+            </button>
+            </a>
+        </div>
+    </figure>
+   
+    <figure class="shuffle">
+        <div onclick="toggleBlock('toggleBlock12')">
+            <figure>
+                <img  src="https://upload.wikimedia.org/wikipedia/en/5/52/Salaar-_Part_1_%E2%80%93_Ceasefire_Soundtrack_Album_Cover.jpg">
+                <figcaption>Sound of Salaar</figcaption>
+            </figure>
+        </div>
+        <div id="toggleBlock12" class="toggle-block">
+                  <a href="https://docs.google.com/uc?export=download&id=1p10cASQUIDZz9iup6aft9KJkhY71tLMo">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                </svg>
+            </button>
+            </a>
+        </div>
+    </figure>
+
+    <figure class="shuffle">
+        <div onclick="toggleBlock('toggleBlock13')">
+            <figure>
+                <img  src="https://upload.wikimedia.org/wikipedia/en/b/be/Kantara_%28soundtrack%29.jpg" alt="album cover">
+                <figcaption>Varaha Roopam Deiva Va Rishtam</figcaption>
+            </figure>
+        </div>
+        <div id="toggleBlock13" class="toggle-block">
+            <a href="       https://docs.google.com/uc?export=download&id=1p10cASQUIDZz9iup6aft9KJkhY71tLMo">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                </svg>
+            </button>
+            </a>
+         </div> 
+     </figure> 
+     
+     <figure class="shuffle">
+        <div onclick="toggleBlock('toggleBlock14')">
+            <figure>
+                <img  src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/b5/e7/dd/b5e7dd37-f4bf-338f-5599-aee77597553b/886447550670.jpg/592x592bb.webp" alt="album cover">
+                <figcaption>Church Fight</figcaption>
+            </figure>
+        </div>
+        <div id="toggleBlock14" class="toggle-block">
+                  <a href="https://docs.google.com/uc?export=download&id=1p10cASQUIDZz9iup6aft9KJkhY71tLMo">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                </svg>
+            </button>
+            </a>
+         </div> 
+     </figure>  
+     
+     <figure class="shuffle">
+        <div onclick="toggleBlock('toggleBlock15')">
+            <figure>
+                <img  src="https://tse2.mm.bing.net/th?id=OIP.4Pre_P2BzsfpH4YZF2lbNwHaHa&pid=Api&P=0&w=400&h=400" alt="album cover">
+            <figcaption>Krishna Krishna</figcaption>   
+            </figure>
+        </div>
+        <div id="toggleBlock15" class="toggle-block">
+                  <a href="https://docs.google.com/uc?export=download&id=1p10cASQUIDZz9iup6aft9KJkhY71tLMo">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                </svg>
+            </button>
+            </a>
+         </div> 
+     </figure>
+     
+     <figure class="shuffle">
+        <div onclick="toggleBlock('toggleBlock16')">
+            <figure>
+                <img  src="https://tse1.mm.bing.net/th?id=OIP.7nai1jXlPqAyPnwSw-PmKQHaHa&pid=Api&H=160&W=160" alt="album cover">
+                <figcaption>Jigelu Rani</figcaption>
+            </figure>
+        </div>
+        <div id="toggleBlock16" class="toggle-block">
+                  <a href="https://docs.google.com/uc?export=download&id=1p10cASQUIDZz9iup6aft9KJkhY71tLMo">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                </svg>
+            </button>
+            </a>
+         </div> 
+     </figure>
+     
+     <figure class="shuffle">
+        <div onclick="toggleBlock('toggleBlock17')">
+            <figure>
+                <img  src="https://tse2.mm.bing.net/th?id=OIP.Ez3aluuuW-LCJz-YhnvBcwHaHa&pid=Api&H=160&W=160" alt="album cover">
+                <figcaption>Priya Mithunam</figcaption>
+            </figure>
+        </div>
+        <div id="toggleBlock17" class="toggle-block">
+                  <a href="https://docs.google.com/uc?export=download&id=1p10cASQUIDZz9iup6aft9KJkhY71tLMo">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                </svg>
+            </button>
+            </a>
+         </div> 
+     </figure>
+     
+     <figure class="shuffle">
+        <div onclick="toggleBlock('toggleBlock18')">
+            <figure>
+                <img  src="https://tse2.mm.bing.net/th?id=OIP.DsoG1KTGj6xW3Jx3G7PDUwHaHa&pid=Api&H=160&W=160" alt="album cover">
+                <figcaption>Naa Madhi</figcaption>
+            </figure>
+        </div>
+        <div id="toggleBlock18" class="toggle-block">
+                  <a href="https://docs.google.com/uc?export=download&id=1p10cASQUIDZz9iup6aft9KJkhY71tLMo">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                </svg>
+            </button>
+            </a>
+         </div> 
+     </figure>
+     
+     <figure class="shuffle">
+        <div onclick="toggleBlock('toggleBlock19')">
+            <figure>
+                <img  src="https://tse1.mm.bing.net/th?id=OIP.LSKxVgwhqNucXXEA6GI0vQHaHa&pid=Api&H=160&W=160" alt="album cover">
+                <figcaption>Bigilu Bigilu</figcaption>
+            </figure>
+        </div>
+        <div id="toggleBlock19" class="toggle-block">
+                  <a href="https://docs.google.com/uc?export=download&id=1p10cASQUIDZz9iup6aft9KJkhY71tLMo">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                </svg>
+            </button>
+            </a>
+         </div> 
+     </figure>
+     
+      <figure class="shuffle">
+        <div onclick="toggleBlock('toggleBlock20')">
+            <figure>
+                <img  src="https://tse2.mm.bing.net/th?id=OIP._K25uOWqh9nxVtmguveKeAHaHa&pid=Api&H=160&W=160" alt="album cover">
+                <figcaption>Nenu Nuvvantu</figcaption>
+            </figure>
+        </div>
+        <div id="toggleBlock20" class="toggle-block">
+                  <a href="https://docs.google.com/uc?export=download&id=1p10cASQUIDZz9iup6aft9KJkhY71tLMo">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                </svg>
+            </button>
+            </a>
+         </div> 
+     </figure>
+    </div>
+</div>
+
+<div id="page3" class="page">
+    <div class="flexible shuffle-container">
+        <figure class="shuffle">
+        <div onclick="toggleBlock('toggleBlock21')">
+            <figure>
+                <img  src="https://tse1.mm.bing.net/th?id=OIP.gjjnNtkl6MUYBfU9ZYcldAHaHa&pid=Api&H=160&W=160" alt="album cover">
+                <figcaption>Neeve</figcaption>
+            </figure>
+        </div>
+        <div id="toggleBlock21" class="toggle-block">
+            <a href="https://docs.google.com/uc?export=download&id=1p10cASQUIDZz9iup6aft9KJkhY71tLMo">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                </svg>
+            </button>
+            </a>
+        </div>
+    </figure>
+   
+    <figure class="shuffle">
+        <div onclick="toggleBlock('toggleBlock22')">
+            <figure>
+                <img  src="https://upload.wikimedia.org/wikipedia/en/b/bf/Guntur_Kaaram_%28soundtrack%29.jpg" alt="album cover">
+                <figcaption>Kurchi Madathapetti</figcaption>
+            </figure>
+        </div>
+        <div id="toggleBlock22" class="toggle-block">
+                  <a href="https://docs.google.com/uc?export=download&id=1p10cASQUIDZz9iup6aft9KJkhY71tLMo">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                </svg>
+            </button>
+            </a>
+        </div>
+    </figure>
+
+    <figure class="shuffle">
+        <div onclick="toggleBlock('toggleBlock23')">
+            <figure>
+                <img  src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/07/0a/3d/070a3d85-bb09-17d5-6ab1-136c46655dfd/cover.jpg/592x592bb.webp" alt="album cover">
+                <figcaption>premante</figcaption>
+            </figure>
+        </div>
+        <div id="toggleBlock23" class="toggle-block">
+            <a href="       https://docs.google.com/uc?export=download&id=1p10cASQUIDZz9iup6aft9KJkhY71tLMo">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                </svg>
+            </button>
+            </a>
+         </div> 
+     </figure> 
+     
+     <figure class="shuffle">
+        <div onclick="toggleBlock('toggleBlock24')">
+            <figure>
+                <img  src="https://a10.gaanacdn.com/gn_img/albums/JD2KJyAbOL/D2KJ7GA3OL/size_l.webp" alt="album cover">
+                <figcaption>Manasaa</figcaption>
+            </figure>
+        </div>
+        <div id="toggleBlock24" class="toggle-block">
+                  <a href="https://docs.google.com/uc?export=download&id=1p10cASQUIDZz9iup6aft9KJkhY71tLMo">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                </svg>
+            </button>
+            </a>
+         </div> 
+     </figure>  
+     
+     <figure class="shuffle">
+        <div onclick="toggleBlock('toggleBlock25')">
+            <figure>
+                <img  src="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/f6/7b/eb/f67beb52-5df6-2056-5f90-a391f0f34a16/8903431600387_cover.jpg/592x592bb.webp" alt="album cover">
+            <figcaption>O Sayonaa</figcaption>   
+            </figure>
+        </div>
+        <div id="toggleBlock25" class="toggle-block">
+                  <a href="https://docs.google.com/uc?export=download&id=1p10cASQUIDZz9iup6aft9KJkhY71tLMo">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                </svg>
+            </button>
+            </a>
+         </div> 
+     </figure>
+     
+     <figure class="shuffle">
+        <div onclick="toggleBlock('toggleBlock26')">
+            <figure>
+                <img  src="https://upload.wikimedia.org/wikipedia/en/e/e3/Leo_album_cover.jpg" alt="album cover">
+                <figcaption>Badass</figcaption>
+            </figure>
+        </div>
+        <div id="toggleBlock26" class="toggle-block">
+                  <a href="https://docs.google.com/uc?export=download&id=1p10cASQUIDZz9iup6aft9KJkhY71tLMo">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                </svg>
+            </button>
+            </a>
+         </div> 
+     </figure>
+     
+     <figure class="shuffle">
+        <div onclick="toggleBlock('toggleBlock27')">
+            <figure>
+                <img  src="https://tse1.mm.bing.net/th?id=OIP.IYf3O2FI47wPtra3laKrxAHaHa&pid=Api&H=160&W=160" alt="album cover">
+                <figcaption>Chal Chalo Chalo</figcaption>
+            </figure>
+        </div>
+        <div id="toggleBlock27" class="toggle-block">
+                  <a href="https://docs.google.com/uc?export=download&id=1p10cASQUIDZz9iup6aft9KJkhY71tLMo">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                </svg>
+            </button>
+            </a>
+         </div> 
+     </figure>
+     
+     <figure class="shuffle">
+        <div onclick="toggleBlock('toggleBlock28')">
+            <figure>
+                <img  src="https://tse1.explicit.bing.net/th?id=OIP.vPnocuMPrpLKsKuXKiBqPQHaHa&pid=Api&H=160&W=160" alt="album cover">
+                <figcaption>Kalaavathi</figcaption>
+            </figure>
+        </div>
+        <div id="toggleBlock28" class="toggle-block">
+                  <a href="https://docs.google.com/uc?export=download&id=1p10cASQUIDZz9iup6aft9KJkhY71tLMo">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                </svg>
+            </button>
+            </a>
+         </div> 
+     </figure>
+     
+     <figure class="shuffle">
+        <div onclick="toggleBlock('toggleBlock29')">
+            <figure>
+                <img  src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/a1/82/27/a18227c0-083b-ae61-da82-e527d6e02b94/cover.jpg/592x592bb.webp" alt="album cover">
+                <figcaption>Kevvu keka</figcaption>
+            </figure>
+        </div>
+        <div id="toggleBlock29" class="toggle-block">
+                  <a href="https://docs.google.com/uc?export=download&id=1p10cASQUIDZz9iup6aft9KJkhY71tLMo">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                </svg>
+            </button>
+            </a>
+         </div> 
+     </figure>
+     
+      <figure class="shuffle">
+        <div onclick="toggleBlock('toggleBlock30')">
+            <figure>
+                <img  src="https://tse1.mm.bing.net/th?id=OIP.WoJwO4RyxvxB0lQR46tM3QHaHa&pid=Api" alt="album cover">
+                <figcaption>My Heart is Beating</figcaption>
+            </figure>
+        </div>
+        <div id="toggleBlock30" class="toggle-block">
+                  <a href="https://docs.google.com/uc?export=download&id=1p10cASQUIDZz9iup6aft9KJkhY71tLMo">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                </svg>
+            </button>
+            </a>
+         </div> 
+     </figure>
+    </div>
+</div>
+
+</div><!-- /gallery -->
+
+<div align="center">
+<button onclick="prevPage()">Prev</button>
+<button onclick="nextPage()">Next</button>
+</div>
+
+<div>
+    <h2 class="text-texture">Recent</h2><hr>
+    <ul>
+        <li><strong><a class="text-texture" href="https://youtu.be/Z1QuBXVrUHU?si=PfwMx8N9P6AjTXXF">Sound of Salaar</a></strong></li>
+        <br>
+        <li><strong><a class="text-texture" href="https://youtu.be/QmtxR3oIn78?si=kfcpNcNO9LNWDVjo">Wrath of Salaar</a></strong></li>
+    </ul>
+    </div>
+    
+</div><!-- /home -->
+
+<!-- About section -->  
+ <div id="element2" class="element"class="flexible">
+        <h2 class="text-texture"><u>About Classic Tunes</u></h2>
+        <p>Welcome to Classic Tunes, your gateway to the world of timeless melodies!</p>
+        
+        <p>At Classic Tunes, our mission is to provide you with an unparalleled musical experience. Explore our vast collection of classic tunes and indulge in the magic of music.</p>
+
+        <p>Here's what sets us apart:</p>
+        
+        <ul>
+            <li><strong>Diverse Collection:</strong> Immerse yourself in a diverse range of classic tunes, from soothing symphonies to energetic beats.</li>
+            <li><strong>Download Service:</strong> Enjoy the convenience of our download service. Click the download button next to your favorite tunes and take them with you wherever you go!</li>
+            <li><strong>Quality Assurance:</strong> We are committed to delivering the highest quality audio for an optimal listening experience.</li>
+        </ul>
+        
+        <p>Experience the joy of music with Classic Tunes. Download your favorite tunes now and embark on a musical journey like never before!</p>
+
+        <p>Feel the rhythm, embrace the melodies, and let Classic Tunes be your companion in the world of timeless music.</p>
+</div>
+
+<!-- contact section -->
+<div id="element3" class="element"class="flexible">
+        <h2 class="text-texture"><u>Contact Us</u></h2>
+        <p>For any inquiries or feedback, feel free to reach out to us via email:</p>
+       
+        <ul>
+            <li>Email: <a href="mailto:info@classictunes.com">info@classictunes.com</a></li>
+            <li>Customer Support: <a href="mailto:support@classictunes.com">support@classictunes.com</a></li>
+            <li>General Inquiries: <a href="mailto: sivasankarkalthireddy1@gmail.com">sivasankarkalthireddy1@gmail.com</a></li>
+        </ul>
+        
+        <p>We appreciate your interest and look forward to hearing from you!</p>   
+</div>
+
+<script>       
+    var currentPage = 1;
+var totalPages = document.querySelectorAll('.page').length;
+
+function prevPage() {
+  if (currentPage > 1) {
+    currentPage--;
+    updatePage();
+  }
+}
+
+function nextPage() {
+  if (currentPage < totalPages) {
+    currentPage++;
+    updatePage();
+  }
+}
+
+function updatePage() {
+  var pages = document.querySelectorAll('.page');
+  pages.forEach(function(page) {
+    page.style.display = 'none';
+  });
+  document.getElementById("page" + currentPage).style.display = 'block';
+}
+
+
+var isMenuDown = false;
+
+function menuDown() {
+    var menu = document.getElementById("menu-slide");
+    menu.style.animation = "down 0.5s ease forwards";
+    isMenuDown = true;
+}
+
+function menuUp() {
+    if (isMenuDown) {
+        var menu = document.getElementById("menu-slide");
+        menu.style.animation = "up 1s ease";
+        isMenuDown = false;
+    }
+}
+
+document.addEventListener('click', function(event) {
+    var menu = document.getElementById('menu-slide');
+    var menuButton = document.getElementById('menu-button');
+
+    if (!menu.contains(event.target) && event.target !== menuButton) {
+        menuUp();
+    }
+});
+
+
+function show(elementId) {
+  var elements = document.querySelectorAll('.element');
+  elements.forEach(function(element) {
+    if (element.id === elementId) {
+      element.style.display = 'block';
+    } else {
+      element.style.display = 'none';
+    }
+  });
+}
+
+
+function searchCaptions() {
+            var input = document.getElementById('searchInput').value.toLowerCase();
+            var captions = document.getElementsByTagName('figcaption');
+            var gallery = document.getElementById('gallery');
+            var noMatchMessage = document.getElementById('gallery-no-match');
+
+            var matchFound = false;
+
+            for (var i = 0; i < captions.length; i++) {
+                var captionText = captions[i].innerText.toLowerCase();
+                var figure = captions[i].parentNode;
+
+                if (captionText.includes(input)) {
+                    figure.style.display = 'inline-block';
+                    matchFound = true;
+                } else {
+                    figure.style.display = 'none';
+                }
+            }
+
+            if (matchFound) {
+                gallery.style.display = 'block';
+                noMatchMessage.style.display = 'none';
+            } else {
+                gallery.style.display = 'none';
+                noMatchMessage.style.display = 'block';
+            }
+        }
+
+       
+ function toggleBlock(toggleBlockId) {
+            var toggleBlock = document.getElementById(toggleBlockId);
+    
+            toggleBlock.style.display = toggleBlock.style.display === "none" ? "block" : "none";
+        }
+ 
+ 
+document.addEventListener("DOMContentLoaded", function() {
+  var shuffleContainers = document.querySelectorAll('.shuffle-container');
+
+  shuffleContainers.forEach(function(container) {
+    var shuffles = Array.from(container.querySelectorAll('.shuffle'));
+
+    container.innerHTML = '';
+
+    // Shuffle elements
+    while (shuffles.length) {
+      var randomIndex = Math.floor(Math.random() * shuffles.length);
+      container.appendChild(shuffles[randomIndex]);
+      shuffles.splice(randomIndex, 1);
+    }
+  });
+});
+
+
+</script>
+
+</body>
+</html>
